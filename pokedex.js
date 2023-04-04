@@ -1,10 +1,12 @@
+//TODO: Make it clickable and add more details
+//TODO: for some reason when the search button is clicked it reset everything
+
 const poke_container = document.getElementById('poke_container');
 const pokemons_number = 150;
 const searchInput = document.querySelector("[data-search]");
 
 // Add a new array to store all Pokemon
 const pokemons = [];
-
 
 const colors = {
     fire: '#FDDFDF',

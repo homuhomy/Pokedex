@@ -3192,22 +3192,45 @@ textarea.form-control-lg {
   --bs-gradient: none;
 }
 
-.btn-outline-success {
-  --bs-btn-color: #198754;
-  --bs-btn-border-color: #198754;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #198754;
-  --bs-btn-hover-border-color: #198754;
-  --bs-btn-focus-shadow-rgb: 25, 135, 84;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #198754;
-  --bs-btn-active-border-color: #198754;
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #198754;
-  --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #198754;
-  --bs-gradient: none;
+.btn-outline-success{
+  background-color: #FF5350;
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: #ff535088 5px 5px 15px;
+  color: white;
+  font-size: 18px;
+  border: none;
+  --bs-btn-active-color: #ff53509c;
+  --bs-btn-hover-bg: #ff53509c;
+
 }
+
+.btn-outline-success:hover{
+  --bs-btn-hover-bg: #ff53509c;
+  color: white;
+  box-shadow: #ff53509c 3px 3px 13px;
+}
+
+
+/*.btn-outline-success {*/
+/*  --bs-btn-color: #f00000;*/
+/*  --bs-btn-border-color: #222224;*/
+/*  --bs-btn-hover-color: #fff;*/
+/*  --bs-btn-hover-bg: #f00000;*/
+/*  --bs-btn-hover-border-color: none;*/
+/*  --bs-btn-focus-shadow-rgb: 25, 135, 84;*/
+/*  --bs-btn-active-color: #fff;*/
+/*  --bs-btn-active-bg: #f00000;*/
+/*  --bs-btn-active-border-color: #198754;*/
+/*  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);*/
+/*  --bs-btn-disabled-color: #198754;*/
+/*  --bs-btn-disabled-bg: transparent;*/
+/*  --bs-btn-disabled-border-color: #198754;*/
+/*  --bs-gradient: none;*/
+/*}*/
 
 .btn-outline-info {
   --bs-btn-color: #0dcaf0;
@@ -12104,6 +12127,11 @@ textarea.form-control-lg {
 .pokemon .img-container img{
   margin-top: 20px;
   max-width: 90%;
+  -webkit-filter: drop-shadow(2px 2px 0 white)
+  drop-shadow(-2px 2px 0 white)
+  drop-shadow(2px -2px 0 white)
+  drop-shadow(-2px -2px 0 white);
+
 }
 
 .pokemon .info{
