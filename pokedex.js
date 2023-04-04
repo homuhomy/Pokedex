@@ -1,5 +1,10 @@
 const poke_container = document.getElementById('poke_container');
 const pokemons_number = 150;
+const searchInput = document.querySelector("[data-search]");
+
+// Add a new array to store all Pokemon
+const pokemons = [];
+
 
 const colors = {
     fire: '#FDDFDF',
@@ -19,10 +24,21 @@ const colors = {
 }
 
 const main_types = Object.keys(colors); //take out the keys
+
+//TODO: Modify the fetchPokemons function to save
+// the fetched Pokemon data in an array for easy filtering
 const fetchPokemons = async () => {
+
     for (let i=1; i<=pokemons_number; i++){
         await getPokemon(i);
     }
+    displayPokemons(pokemons); // Display all the fetched Pokemon initially
+}
+
+// Create a new function to display an array of Pokemon on the page
+function displayPokemons(pokemonList) {
+    poke_container.innerHTML = ""; // Clear the container first
+    pokemonList.forEach(createPokemonCard); // Create and display a card for each Pokemon
 }
 
 const getPokemon = async id =>{
@@ -31,9 +47,24 @@ const getPokemon = async id =>{
     //fetch it
     const res = await fetch(url);
     const pokemon = await res.json();
-    console.log(pokemon);
     createPokemonCard(pokemon);
+    pokemons.push(pokemon); // Save the Pokemon data in the array
 }
+
+//filter the displayed pokemon
+function filterPokemons(searchText) {
+    const filteredPokemons = pokemons.filter(pokemon => {
+        const name = pokemon.name.toLowerCase();
+        return name.includes(searchText.toLowerCase());
+    });
+    displayPokemons(filteredPokemons);
+}
+
+//search for pokemon according to user input
+searchInput.addEventListener("input", (e) =>{
+    const value = e.target.value;
+    filterPokemons(value);
+})
 
 fetchPokemons();
 
@@ -54,7 +85,7 @@ function createPokemonCard(pokemon) {
     const pokemonInnerHTML = `
     <div class="img-container">
 <!--    or can use pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png-->
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png">
+        <img alt="pokemon image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png">
     </div>
     
     <div class="info">
@@ -67,3 +98,4 @@ function createPokemonCard(pokemon) {
     pokemonElement.innerHTML = pokemonInnerHTML;
     poke_container.appendChild(pokemonElement);
 }
+
