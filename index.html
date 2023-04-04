@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--    Required meta tags -->
+    <title>Pokedex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--  Bootstrap CSS -->
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="bg-light">
+    <div class="text-center"><img src="images/pokemon-logo-png.png"width="400"></div>
+
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">Pokedex</a>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search pokemon" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="search-wrapper">
+        <label for="search">Search pokemon</label>
+        <input type="search" id="search">
+    </div>
+
+</div>
+
+<div id="poke_container" class="poke-container"></div>
+
+<!-- Include Bootstrap Javascript plugin at the end to reduce page loading time -->
+<script src="pokedex.js"></script>
+
+</body>
+</html>
